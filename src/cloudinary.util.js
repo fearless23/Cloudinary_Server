@@ -3,7 +3,7 @@ const cloudinary = require('cloudinary').v2;
 cloudinary.config({
   cloud_name: 'jassi',
   api_key: process.env.CLOUDINARY_API_KEY || '848377833547884',
-  api_secret: process.env.CLOUDINARY_API_KEY || 'iGRqMMV7p_NBrwPNjgnbuDGbj5M',
+  api_secret: process.env.CLOUDINARY_API_SECRET || 'iGRqMMV7p_NBrwPNjgnbuDGbj5M',
 });
 
 const options = (name, folderName = 'heroku_server') => ({
