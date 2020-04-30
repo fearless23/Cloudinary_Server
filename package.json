@@ -4,7 +4,7 @@
   "description": "Cloudinary Upload Image From NodeJS Backend Server",
   "main": "src/app.js",
   "scripts": {
-    "test": "node src/app.js"
+    "start": "node src/app.js"
   },
   "keywords": [
     "Cloudinary",
