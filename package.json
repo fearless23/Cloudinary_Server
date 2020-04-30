@@ -1,0 +1,21 @@
+{
+  "name": "cloudinary-upload-server",
+  "version": "1.0.0",
+  "description": "Cloudinary Upload Image From NodeJS Backend Server",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "node src/app.js"
+  },
+  "keywords": [
+    "Cloudinary",
+    "NodeJS",
+    "Image"
+  ],
+  "author": "Jaspreet Singh",
+  "license": "MIT",
+  "dependencies": {
+    "cloudinary": "^1.21.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3"
+  }
+}
