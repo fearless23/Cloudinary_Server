@@ -13,17 +13,17 @@ app.get('/', (req, res) => {
   res.json({ msg: 'Welcome to Cloudinary Server', error: false });
 });
 
-const getFilesFromRequest = (requestFiles) => {
+const getFilePathsFromRequest = (requestFiles) => {
   const files = Object.values(requestFiles)[0];
-  if (Array.isArray(files)) return files;
-  return [files];
+  if (Array.isArray(files)) return files.map((file) => file.tempFilePath);
+  return [files.tempFilePath];
 };
 
 app.post('/upload', async (req, res) => {
-  const files = getFilesFromRequest(req.files);
+  const filePaths = getFilePathsFromRequest(req.files);
   try {
-    console.log(files[0].tempFilePath);
-    const data = await uploadToCloudinary(files[0].tempFilePath);
+    const pArr$ = filePaths.map((filePath) => uploadToCloudinary(filePath));
+    const data = await Promise.all(pArr$);
     res.json({ msg: 'Image Uploaded', error: false, data });
   } catch (error) {
     res.json({
